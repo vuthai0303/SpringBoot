@@ -15,7 +15,7 @@ public class UserService {
     private  final UserRepository userRepository;
 
     @Autowired
-    UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -33,12 +33,12 @@ public class UserService {
         }
     }
 
-    public User createUser(UserDTO newUser) {
-        UserDTO user = userRepository.save(newUser);
+    public User createUser(User newUser) {
+        UserDTO user = userRepository.save(newUser.toDto());
         return new User(user);
     }
 
-    public User updateUser(int id, UserDTO updateUser) {
+    public User updateUser(int id, User updateUser) {
         Optional<UserDTO> existingUser = userRepository.findById(id);
         if (existingUser.isPresent()) {
             UserDTO user = existingUser.get();

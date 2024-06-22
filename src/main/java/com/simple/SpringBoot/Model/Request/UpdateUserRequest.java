@@ -1,17 +1,18 @@
 package com.simple.SpringBoot.Model.Request;
 
 import com.simple.SpringBoot.DAO.DTO.UserDTO;
+import com.simple.SpringBoot.Model.Object.User;
 import lombok.Data;
 
 @Data
 public class UpdateUserRequest {
     private UserRequest newUser;
 
-    public UserDTO toDTO(){
-        UserDTO userDTO = new UserDTO();
-        userDTO.setEmail(newUser.getEmail());
-        userDTO.setPhone(newUser.getPhone());
-        return userDTO;
+    public User toUser(){
+        User user = new User();
+        user.setEmail(newUser.getEmail());
+        user.setPhone(newUser.getPhone());
+        return user;
     }
 
     @Data
