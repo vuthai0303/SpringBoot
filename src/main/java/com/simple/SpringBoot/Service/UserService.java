@@ -54,7 +54,7 @@ public class UserService {
         Optional<UserDTO> existingUser = userRepository.findById(id);
         if (existingUser.isPresent()) {
             userRepository.deleteById(id);
-            return "Deleted user successfull!";
+            return "Deleted user successfull 1!";
         } else {
             throw new RuntimeException("User not found");
         }
